@@ -5,7 +5,7 @@ import './Style.scss'
 
 const Intro = () => {
   return (
-    <header className='header'>
+    <header className='header' dir='rtl'>
       <div className="header-content container">
         <div className="header-content__image">
           <img src={img} alt="" />
