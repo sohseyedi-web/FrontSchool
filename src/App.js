@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Panel from './pages/Panel';
 
 const App = () => {
+
     return (
         <Routes>
             <Route path="/register" element={<Register />} />
