@@ -3,6 +3,9 @@ import Container from '../../Container/Container';
 import './Style.scss'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { login } from '../../Store/reducers/authReducers'
+import { useNavigate } from 'react-router-dom';
 
 
 const initialValues = {
@@ -17,8 +20,12 @@ const validationSchema = Yup.object({
 
 const Login = () => {
 
+    const history = useNavigate();
+    const dispatch = useDispatch();
+
     const onSubmit = (values) => {
-        console.log(values);
+        dispatch(login(values))
+        history("/panel")
     }
 
     const formik = useFormik({

@@ -13,47 +13,62 @@ const dataList = {
             "title": "React&Redux",
             "price": 18,
             "time": "20 hours",
-            "img": Reacts
+            "img": Reacts,
+            "quantity": 0
+
         },
         {
             "id": 2,
             "title": "Node js",
             "price": 15,
             "time": "10 hours",
-            "img": Node
+            "img": Node,
+            "quantity": 0
+
         },
         {
             "id": 3,
             "title": "Mern Stack",
             "price": 23,
             "time": "24 hours",
-            "img": Mern
+            "img": Mern,
+            "quantity": 0
+
         },
         {
             "id": 4,
             "title": "JavaScript",
             "price": 14,
             "time": "13 hours",
-            "img": Js
+            "img": Js,
+            "quantity": 0
+
         }
     ],
     "coach": [
         {
             "id": 11,
             "title": "Maximilian (FullStack)",
-            "img": Maxi
+            "img": Maxi,
+            "price": 50,
+            "quantity": 0
 
         },
         {
             "id": 12,
             "title": "Sonny (FrontEnd)",
-            "img": Sonny
+            "img": Sonny,
+            "price": 45,
+            "quantity": 0
 
         },
         {
             "id": 13,
             "title": "Pedro (BackEnd)",
-            "img": Pedro
+            "img": Pedro,
+            "price": 40,
+
+            "quantity": 0
         }
     ]
 }

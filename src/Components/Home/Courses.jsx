@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FiClock, FiLinkedin, FiGithub, FiInstagram, FiInfo } from 'react-icons/fi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../Store/reducers/cartReducers'
 import dataList from '../../Data/db';
 import './Style.scss';
@@ -8,6 +8,7 @@ import './Style.scss';
 const Courses = () => {
 
     const { courses, coach } = dataList;
+    const { cartItems } = useSelector(state => state.cart);
     const [activeTabs, setactiveTabs] = useState(1);
     const dispatch = useDispatch();
 
@@ -16,6 +17,10 @@ const Courses = () => {
     }
     const toggleTab = (index) => {
         setactiveTabs(index);
+    }
+
+    const checkInCart = (cartItems, item) => {
+        return cartItems.find(c => c.id === item.id)
     }
 
     return (
@@ -38,7 +43,9 @@ const Courses = () => {
                                         <span className="courses-body__item-box__details-time"><FiClock size={22} />{course.time}</span>
                                     </div>
                                     <div className="courses-body__item-box__actions">
-                                        <button className="courses-body__item-box__actions-btn" onClick={() => handleClickToCart(course)}>Add Course</button>
+                                        <button className={checkInCart(cartItems, course) ? "courses-body__item-box__actions-btn btn-cart" : "courses-body__item-box__actions-btn"} onClick={() => handleClickToCart(course)}>
+                                            {checkInCart(cartItems, course) ? 'Added To Cart' : 'Add Course'}
+                                        </button>
                                         <span className="courses-body__item-box__actions-price">Price :{course.price} $</span>
                                     </div>
                                 </div>
@@ -66,7 +73,9 @@ const Courses = () => {
                                         </div>
                                     </div>
                                     <div className="courses-body__item-box__actions">
-                                        <button className="courses-body__item-box__actions-btnc" onClick={() => handleClickToCart(item)}>Add Coach</button>
+                                        <button className={checkInCart(cartItems, item) ? "courses-body__item-box__actions-btnc btn-cart" : "courses-body__item-box__actions-btnc"} onClick={() => handleClickToCart(item)}>
+                                            {checkInCart(cartItems, item) ? 'Added To Cart' : 'Add Coach'}
+                                        </button>
                                     </div>
                                 </div>
                             ))

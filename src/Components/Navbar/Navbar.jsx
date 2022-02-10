@@ -1,8 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import './Navbar.scss'
 
 const Navbar = () => {
+
+    const { user } = useSelector(state => state.auth);
+
+
     return (
         <nav className='navbars'>
             <div className="container navbars-item">

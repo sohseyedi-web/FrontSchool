@@ -1,6 +1,6 @@
 .panel {
     background-color: #252525;
-    height: 671px;
+    overflow: unset;
 
     &-content {
         display: flex;
@@ -43,14 +43,14 @@
             &-courses {
                 display: flex;
                 align-items: center;
-                flex-direction: column;
+                justify-content: space-between;
                 padding: .2rem 1rem;
 
                 &-box {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    width: 100%;
+                    width: 60%;
                     margin: 1rem 0;
 
                     &__btn {
@@ -58,6 +58,77 @@
                         border-radius: .5rem;
                         border: none;
                         background-color: #252525;
+                        color: #efefef;
+                    }
+
+                    &__details {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        img {
+                            width: 70px;
+                            height: 70px;
+                            border-radius: 10%;
+                        }
+
+                        &-name {
+                            font-weight: 600;
+                            font-size: 1.4rem;
+                            margin-left: 1.5rem;
+                        }
+                    }
+
+                    &__actions {
+                        display: flex;
+                        width: 150px;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        &-btn {
+                            border: none;
+                            width: 40px;
+                            height: 40px;
+                            font-weight: bold;
+                            border-radius: 50%;
+                            font-size: 1.5rem;
+                            color: #efefef;
+                            background-color: #4E9F3D;
+
+                        }
+
+                        span {
+                            font-weight: bold;
+                            font-size: 1.1rem;
+                        }
+                    }
+
+                }
+
+                &__checkout {
+                    width: 20%;
+                    display: flex;
+                    align-items: flex-end;
+                    flex-direction: column;
+                    margin-top: 1rem;
+                    border-left: 4px solid #252525;
+
+                    &-total {
+                        font-size: 1.2rem;
+                        margin: 1rem 1.5rem;
+                        font-weight: 500;
+                        text-align: center;
+                    }
+
+                    &-btn {
+                        border: none;
+                        background-color: #4E9F3D;
+                        color: #252525;
+                        border-radius: .5rem;
+                        width: 150px;
+                        height: 40px;
+                        font-size: 1.2rem;
+                        font-weight: 600;
                         color: #efefef;
                     }
                 }

@@ -265,6 +265,13 @@
                         color: #252525;
                         border: none;
                         padding: .5rem .1rem;
+                        font-weight: 500;
+                        font-size: 1.1rem;
+
+                        &.btn-cart {
+                            background-color: #4E9F3D;
+                            color: #efefef;
+                        }
                     }
 
                     &-btnc {
@@ -299,6 +306,7 @@
 .footer {
     background-color: #252525;
     padding: 2rem;
+    border-top: 4px solid #f0a500;
 
     &-content {
         display: flex;
