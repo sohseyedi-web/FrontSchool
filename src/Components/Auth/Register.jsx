@@ -1,7 +1,10 @@
 import { useFormik } from 'formik';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'
 import Container from '../../Container/Container';
+import { login } from '../../Store/reducers/authReducers';
 import './Style.scss'
 
 const initialValues = {
@@ -18,8 +21,12 @@ const validationSchema = Yup.object({
 
 const Register = () => {
 
+    const history = useNavigate();
+    const dispatch = useDispatch();
+
     const onSubmit = (values) => {
-        console.log(values);
+        dispatch(login(values))
+        history("/panel")
     }
 
     const formik = useFormik({
@@ -36,7 +43,7 @@ const Register = () => {
                 <form className="form-wrap" onSubmit={formik.handleSubmit}>
                     <h3 className="form-wrap__title">Register</h3>
                     <div className="form-wrap__box">
-                        <input type="text" className="form-wrap__box-input" {...formik.getFieldProps('د')} placeholder=" " name="name" />
+                        <input type="text" className="form-wrap__box-input" {...formik.getFieldProps('name')} placeholder=" " name="name" />
                         <label htmlFor="name" className="form-wrap__box-label">Name</label>
                         {formik.errors.name && formik.touched.name && <div className='form-wrap__box-error'>{formik.errors.name}</div>}
                     </div>

@@ -50,7 +50,31 @@
                 }
             }
 
+            &-online {
+                color: #4E9F3D;
+                background-color: #4E9F3D;
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                opacity: 0;
+                animation: showOn 1.7s 1s ease-out infinite;
+            }
+
+            &-logout {
+                padding: .4rem 1rem;
+                border: none;
+                background-color: #efefef;
+                color: #252525;
+                border-radius: .5rem;
+            }
 
         }
+    }
+}
+
+@keyframes showOn {
+
+    100% {
+        opacity: 1;
     }
 }

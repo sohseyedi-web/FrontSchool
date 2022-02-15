@@ -28,18 +28,17 @@ const cartSlice = createSlice({
         deCreaseToCart(state, actions) {
             const filterItem = state.cartItems.filter(i => i.id !== actions.payload.id)
             state.cartItems = filterItem;
-            toast.danger('Course deleted')
+            toast.error('Course deleted')
             localStorage.setItem('cart', JSON.stringify(state.cartItems))
 
         },
         AllCourses(state) {
             const courseList = [...state.cartItems]
             state.courseItems = courseList;
-            localStorage.removeItem('cart')
+            localStorage.clear();
             toast.success('Payment was successful')
             localStorage.setItem('panel', JSON.stringify(state.courseItems))
-
-        }
+        },
     }
 })
 
