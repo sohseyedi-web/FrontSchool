@@ -6,6 +6,9 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { login } from '../../Store/reducers/authReducers'
 import { useNavigate } from 'react-router-dom';
+import { useQuery } from '../../hooks/useQuery';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 
 const initialValues = {
@@ -20,13 +23,25 @@ const validationSchema = Yup.object({
 
 const Login = () => {
 
+    const { user } = useSelector(state => state.auth);
     const history = useNavigate();
     const dispatch = useDispatch();
+
+    const query = useQuery();
+    const redirect = query.get("redirect") || "/panel"
+    useEffect(() => {
+        if (user) {
+            return history(redirect)
+        }
+    }, [redirect, user])
 
     const onSubmit = (values) => {
         dispatch(login(values))
         history("/panel")
     }
+
+
+
 
     const formik = useFormik({
         initialValues,

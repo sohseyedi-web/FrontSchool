@@ -8,7 +8,7 @@ const PanelHead = () => {
 
     return (
         <div className="panel-content__details">
-            <div className="panel-content__details-email">Email : </div>
+            <div className="panel-content__details-email">Email : {user && user.email}</div>
             <button className="panel-content__details-password">Change Password</button>
         </div>
     )

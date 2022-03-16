@@ -1,17 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { AllCourses, deCreaseToCart } from '../../Store/reducers/cartReducers';
 import { FiTrash } from 'react-icons/fi';
 import PanelHead from './PanelHead'
 import './Style.scss'
+import { useQuery } from '../../hooks/useQuery';
+import { useNavigate } from 'react-router-dom';
 
 const PanelList = () => {
 
     const { cartItems, courseItems } = useSelector(state => state.cart);
+    const { user } = useSelector(state => state.cart);
     const dispatch = useDispatch();
     const hasItem = cartItems.length === 0;
     const hasCourse = courseItems.length === 0;
     const totalPrice = cartItems.reduce((price, total) => price + total.quantity * total.price, 0)
+    const history = useNavigate();
+    const query = useQuery();
+    const redirect = query.get("redirect") || "/login"
+    useEffect(() => {
+        if (!user) history(redirect)
+
+    }, [redirect, user])
 
     const handleDeleteItem = (courses) => {
         dispatch(deCreaseToCart(courses))

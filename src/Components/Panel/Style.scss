@@ -191,5 +191,13 @@
                 }
             }
         }
+
+        @media screen and (max-width : 540px) {
+            &__details {
+                font-size: .8rem;
+
+
+            }
+        }
     }
 }

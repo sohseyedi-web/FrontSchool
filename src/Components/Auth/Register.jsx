@@ -1,9 +1,10 @@
 import { useFormik } from 'formik';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup'
 import Container from '../../Container/Container';
+import { useQuery } from '../../hooks/useQuery';
 import { login } from '../../Store/reducers/authReducers';
 import './Style.scss'
 
@@ -21,13 +22,24 @@ const validationSchema = Yup.object({
 
 const Register = () => {
 
+    const { user } = useSelector(state => state.auth);
     const history = useNavigate();
     const dispatch = useDispatch();
+
+    const query = useQuery();
+    const redirect = query.get("redirect") || "/panel"
+    useEffect(() => {
+        if (user) {
+            return history(redirect)
+        }
+    }, [redirect, user])
 
     const onSubmit = (values) => {
         dispatch(login(values))
         history("/panel")
     }
+
+
 
     const formik = useFormik({
         initialValues,

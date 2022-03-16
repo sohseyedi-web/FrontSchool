@@ -204,6 +204,50 @@
                 }
 
                 &-title {
+
+
+                    span {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width : 540px) {
+        &-title {
+            font-size: 1rem;
+        }
+
+        &-content {
+
+            &::before {
+                top: 51%;
+                left: 4%;
+                height: 74%;
+            }
+
+            &__block {
+                width: 90%;
+                margin: 3rem auto;
+
+
+                &:nth-child(even) {
+                    left: 0;
+
+                    &::before {
+                        left: -8%;
+                    }
+
+                }
+
+                &::before {
+                    left: -8%;
+
+                    top: -1px;
+                }
+
+                &-title {
                     h6 {
                         font-size: 1.3rem;
                     }
@@ -378,6 +422,15 @@
         }
     }
 
+    @media screen and (max-width : 540px) {
+        &-header {
+
+            &__tab {
+                font-size: 1rem;
+            }
+        }
+    }
+
 }
 
 // end courses
@@ -415,6 +468,13 @@
                     transition: color .4s ease-in-out;
 
                 }
+            }
+        }
+
+        @media screen and (max-width : 540px) {
+            &__social {
+                width: 100px;
+
             }
         }
     }
